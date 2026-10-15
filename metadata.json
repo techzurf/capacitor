@@ -1,0 +1,8 @@
+{
+  "name": "Sirajan Muneera App",
+  "description": "Modern, peaceful, and accessible mobile community app prototype for Sirajan Muneera prayers, events, services, Qibla, Tasbeeh, and community life.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

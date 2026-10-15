@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-arabic: 'Amiri', serif;
+
+    /* PRIMARY BRAND COLORS */
+    --color-primary: #087F5B;     /* Emerald Green */
+    --color-primary-dark: #07543F;/* Deep Green */
+    --color-soft-mint: #E8F7F1;   /* Soft Mint */
+
+    /* SECONDARY ACCENT COLORS */
+    --color-accent-gold: #D4A72C;  /* Warm Gold */
+    --color-accent-blue: #3B6FD8;  /* Royal Blue */
+    --color-accent-sky: #4DA3E8;   /* Sky Blue */
+    --color-accent-purple: #7657C8;/* Purple */
+    --color-accent-coral: #E87961; /* Coral */
+    --color-accent-orange: #E89B3C;/* Orange */
+    --color-accent-teal: #159A9C;  /* Teal */
+
+    /* NEUTRAL & BACKGROUND SURFACES */
+    --color-bg-base: #F8FAF9;
+    --color-bg-cream: #FDFBF7;
+    --color-card-surface: #FFFFFF;
+    --color-text-main: #17221D;
+    --color-text-charcoal: #1E293B;
+    --color-text-muted: #64748B;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    font-family: var(--font-sans);
+    background-color: #0E1612;
+    color: var(--color-text-main);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  #root {
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Hide scrollbar for clean mobile tab bars and horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Primary Mobile Vertical Scroll Container */
+#main-scroll-container {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ADMIN PANEL SCROLLING & VIEWPORT INTEGRATION
+   Ensures the window and #root remain 100% height without scrolling,
+   leaving #admin-main-scroll as the single primary scroll container.
+   Enables normal text selection and touch interactions.
+   ───────────────────────────────────────────────────────────── */
+body.admin-mode,
+html.admin-mode,
+body.admin-mode #root {
+  background-color: #F8FAFB !important;
+  overflow: hidden !important;
+  height: 100% !important;
+  height: 100dvh !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  max-height: 100dvh !important;
+  user-select: auto !important;
+  -webkit-user-select: auto !important;
+}
+
+#admin-main-scroll {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+
+#admin-main-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+#admin-main-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#admin-main-scroll::-webkit-scrollbar-thumb {
+  background-color: #CBD5E1;
+  border-radius: 9999px;
+}
+
+#admin-main-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #94A3B8;
+}
+
+/* Islamic pattern background generator with SVG */
+.islamic-pattern {
+  background-color: #087F5B;
+  background-image: radial-gradient(rgba(212, 167, 44, 0.15) 1px, transparent 1px),
+                    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+.islamic-subtle-pattern {
+  background-image: radial-gradient(rgba(8, 127, 91, 0.08) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.islamic-gold-pattern {
+  background-image: radial-gradient(rgba(212, 167, 44, 0.12) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+/* Festive Ramadan Night Patterns & Gold Accents */
+.ramadan-night-canvas {
+  background-color: #060F1D;
+  background-image: 
+    radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.ramadan-festive-glow {
+  box-shadow: 0 0 25px -4px rgba(245, 158, 11, 0.25);
+}
+
+.ramadan-gold-border {
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+/* Subtle Splash Screen Entrance Animations */
+@keyframes splashScaleFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-splash-logo {
+  animation: splashScaleFade 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-splash-content {
+  animation: splashScaleFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+/* Subtle Zepto-Style Animated Greeting Transitions */
+@keyframes zeptoGreetingSlideOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
+@keyframes zeptoGreetingSlideIn {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-greeting-out {
+  animation: zeptoGreetingSlideOut 480ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-greeting-in {
+  animation: zeptoGreetingSlideIn 480ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-greeting-out,
+  .animate-greeting-in {
+    animation: none !important;
+  }
+}
+
+/* GSAP SplitText 3D Tube Animation Styles */
+.splittext-3d-banner {
+  width: 100%;
+  max-width: 100%;
+  height: 165px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, #073B2A 0%, #05291D 55%, #02160F 100%);
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.splittext-3d-banner .tube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: 700px;
+}
+
+.splittext-3d-banner .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0 16px;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  user-select: none;
+  pointer-events: none;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.splittext-3d-banner .char {
+  display: inline-block;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  white-space: pre;
+}
+
+/* Rotating Phrases Typographic Palette */
+.splittext-3d-banner .line1 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(20px, 5.6vw, 27px);
+  color: #FFFFFF;
+  text-shadow: 0 0 18px rgba(52, 211, 153, 0.5), 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+.splittext-3d-banner .line2 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(18px, 4.8vw, 24px);
+  color: #FDE68A;
+  text-shadow: 0 0 20px rgba(212, 167, 44, 0.6), 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.splittext-3d-banner .line3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(16px, 4.2vw, 21px);
+  color: #E2E8F0;
+  text-shadow: 0 0 16px rgba(110, 231, 183, 0.5), 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+.splittext-3d-banner .line4 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(18px, 4.8vw, 24px);
+  color: #FEF3C7;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.55), 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
